@@ -82,22 +82,22 @@ L.Control.Menubar = L.Control.extend({
 					{name: _('PDF Document (.pdf)'), id: 'exportas-pdf', type: 'action'},
 					{name: _('EPUB (.epub)'), id: 'exportas-epub', type: 'action'}
 				]},
-				{name: _('Rename Document'), id: 'renamedocument', type: 'action'},
-				{name: _('Share...'), id:'shareas', type: 'action'},
-				{name: _('See revision history'), id: 'rev-history', type: 'action'},
+				//{name: _('Rename Document'), id: 'renamedocument', type: 'action'},
+				//{name: _('Share...'), id:'shareas', type: 'action'},
+				//{name: _('See revision history'), id: 'rev-history', type: 'action'},
 				{name: !window.ThisIsAMobileApp ? _('Download as') : _('Export as'), id: 'downloadas', type: 'menu', menu: [
 					{name: _('PDF Document (.pdf)'), id: !window.ThisIsAMobileApp ? 'exportdirectpdf' : 'downloadas-pdf', type: 'action'},
-					{name: _('PDF Document (.pdf) as...'), id: 'exportpdf' , type: 'action'},
-					{name: _('ODF text document (.odt)'), id: 'downloadas-odt', type: 'action'},
+					{name: _('PDF Document (.pdf) as...'), id: 'exportpdf' , type: 'action'}
+					/*{name: _('ODF text document (.odt)'), id: 'downloadas-odt', type: 'action'},
 					{name: _('Word 2003 Document (.doc)'), id: 'downloadas-doc', type: 'action'},
 					{name: _('Word Document (.docx)'), id: 'downloadas-docx', type: 'action'},
 					{name: _('Rich Text (.rtf)'), id: 'downloadas-rtf', type: 'action'},
 					{name: _('EPUB (.epub)'), id: !window.ThisIsAMobileApp ? 'exportepub' : 'downloadas-epub', type: 'action'},
-					{name: _('HTML file (.html)'), id: 'downloadas-html', type: 'action'}]},
-				{name: _UNO('.uno:SetDocumentProperties', 'text'), uno: '.uno:SetDocumentProperties', id: 'properties'},
-				{type: 'separator'},
-				{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:Print', 'text'), L.Control.MenubarShortcuts.shortcuts.PRINT), id: 'print', type: 'action'},
-				{name: _('Close document'), id: 'closedocument', type: 'action'}
+					{name: _('HTML file (.html)'), id: 'downloadas-html', type: 'action'}*/]}
+				//{name: _UNO('.uno:SetDocumentProperties', 'text'), uno: '.uno:SetDocumentProperties', id: 'properties'},
+				//{type: 'separator'},
+				//{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:Print', 'text'), L.Control.MenubarShortcuts.shortcuts.PRINT), id: 'print', type: 'action'},
+				//{name: _('Close document'), id: 'closedocument', type: 'action'}
 			]},
 			{name: _UNO('.uno:EditMenu', 'text'), id: 'editmenu', type: 'menu', menu: [
 				{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:Undo', 'text'), L.Control.MenubarShortcuts.shortcuts.UNDO), uno: '.uno:Undo'},
@@ -110,7 +110,8 @@ L.Control.Menubar = L.Control.extend({
 				{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:PasteSpecial', 'text'), L.Control.MenubarShortcuts.shortcuts.PASTE_SPECIAL), uno: '.uno:PasteSpecial'},
 				{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:SelectAll', 'text'), L.Control.MenubarShortcuts.shortcuts.SELECT_ALL), uno: '.uno:SelectAll'},
 				{type: 'separator'},
-				{uno: '.uno:SearchDialog'},
+				{uno: '.uno:SearchDialog'}
+				/*
 				{type: 'separator'},
 				{name: _UNO('.uno:ChangesMenu', 'text'), id: 'changesmenu', type: 'menu', menu: [
 					{uno: '.uno:TrackChanges'},
@@ -127,6 +128,7 @@ L.Control.Menubar = L.Control.extend({
 					{uno: '.uno:NextTrackedChange'}
 				]},
 				{uno: '.uno:EditStyle'}
+				*/
 			]},
 			{name: _UNO('.uno:ViewMenu', 'text'), id: 'view', type: 'menu',
 			 menu: (window.mode.isTablet() ? [
@@ -139,19 +141,19 @@ L.Control.Menubar = L.Control.extend({
 					{name: _('Reset zoom'), id: 'zoomreset', type: 'action'},
 				]).concat([
 					{type: 'separator'},
-					{name: _('Toggle UI Mode'), id: 'toggleuimode', type: 'action'},
+					//{name: _('Toggle UI Mode'), id: 'toggleuimode', type: 'action'},
 					{name: _('Show Ruler'), id: 'showruler', type: 'action'},
 					{name: _('Show Status Bar'), id: 'showstatusbar', type: 'action'},
-					{name: _('Hide Menu Bar'), id: 'togglemenubar', type: 'action'},
+					//{name: _('Hide Menu Bar'), id: 'togglemenubar', type: 'action'},
 					{name: _('Dark Mode'), id: 'toggledarktheme', type: 'action'},
-					{name: _('Invert Background'), id: 'invertbackground', type: 'action'},
-					{uno: '.uno:SidebarDeck.PropertyDeck', name: _UNO('.uno:Sidebar')},
-					{uno: '.uno:Navigator', id: 'navigator'},
+					//{name: _('Invert Background'), id: 'invertbackground', type: 'action'},
+					//{uno: '.uno:SidebarDeck.PropertyDeck', name: _UNO('.uno:Sidebar')},
+					//{uno: '.uno:Navigator', id: 'navigator'},
 					{type: 'separator'},
-					{name: _UNO('.uno:ShowResolvedAnnotations', 'text'), id: 'showresolved', type: 'action'},
+					//{name: _UNO('.uno:ShowResolvedAnnotations', 'text'), id: 'showresolved', type: 'action'},
 					{uno: '.uno:ControlCodes'},
 				])},
-			{name: _UNO('.uno:InsertMenu', 'text'), id: 'insert', type: 'menu', menu: [
+			/*{name: _UNO('.uno:InsertMenu', 'text'), id: 'insert', type: 'menu', menu: [
 				{name: _('Local Image...'), id: 'insertgraphic', type: 'action'},
 				{name: _UNO('.uno:InsertGraphic', 'text'), id: 'insertgraphicremote', type: 'action'},
 				{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:InsertAnnotation', 'text'), L.Control.MenubarShortcuts.shortcuts.COMMENT), id: 'insertcomment', type: 'action'},
@@ -200,8 +202,8 @@ L.Control.Menubar = L.Control.extend({
 					{uno: '.uno:InsertWJ'},
 					{uno: '.uno:InsertLRM'},
 					{uno: '.uno:InsertRLM'}]},
-			]},
-			{name: _UNO('.uno:FormatMenu', 'text'), id: 'format', type: 'menu', menu: [
+			]},*/
+			/*{name: _UNO('.uno:FormatMenu', 'text'), id: 'format', type: 'menu', menu: [
 				{name: _UNO('.uno:FormatTextMenu', 'text'), type: 'menu', menu: [
 					{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:Bold', 'text'), L.Control.MenubarShortcuts.shortcuts.BOLD), uno: '.uno:Bold'},
 					{name: L.Control.MenubarShortcuts.addShortcut(_UNO('.uno:Italic', 'text'), L.Control.MenubarShortcuts.shortcuts.ITALIC), uno: '.uno:Italic'},
@@ -291,8 +293,8 @@ L.Control.Menubar = L.Control.extend({
 				{uno: '.uno:FormatArea'},
 				{uno: '.uno:NameGroup'},
 				{uno: '.uno:ObjectTitleDescription'},
-			]},
-			{name: _('References'), id: 'references', type: 'menu', menu: [
+			]},*/
+			/*{name: _('References'), id: 'references', type: 'menu', menu: [
 				{name: _UNO('.uno:IndexesMenu', 'text'), uno: '.uno:InsertMultiIndex'},
 				{uno: '.uno:InsertIndexesEntry'},
 				{name: _('Update Index'), uno: '.uno:UpdateCurIndex'},
@@ -311,7 +313,7 @@ L.Control.Menubar = L.Control.extend({
 				{name: _('Refresh Citations'), id: 'zoterorefresh', type: 'action', hidden: !window.zoteroEnabled},
 				{name: _('Unlink Citations'), id: 'zoterounlink', type: 'action', hidden: !window.zoteroEnabled},
 				{name: _('Citation Preferences'), id: 'zoterosetdocprefs', type: 'action', iosapp: false, hidden: !window.zoteroEnabled}]
-			},
+			},*/
 			{name: _UNO('.uno:TableMenu', 'text'), type: 'menu', id: 'table', menu: [
 				{uno: '.uno:InsertTable'},
 				{name: _UNO('.uno:TableInsertMenu', 'text'), type: 'menu', menu: [
@@ -331,20 +333,20 @@ L.Control.Menubar = L.Control.extend({
 					{uno: '.uno:EntireCell'}]},
 				{uno: '.uno:SplitCell'},
 				{uno: '.uno:MergeCells'},
-				{type: 'separator'},
+				/*{type: 'separator'},
 				{uno: '.uno:Protect'},
-				{uno: '.uno:UnsetCellsReadOnly'},
+				{uno: '.uno:UnsetCellsReadOnly'},*/
 				{type: 'separator'},
 				{uno: '.uno:TableDialog'}
 			]},
-			{name: _UNO('.uno:FormatFormMenu', 'text'), id: 'form', type: 'menu', menu: [
+			/*{name: _UNO('.uno:FormatFormMenu', 'text'), id: 'form', type: 'menu', menu: [
 				{name: _('Insert Rich Text'), uno: '.uno:InsertContentControl'},
 				{name: _('Insert Checkbox'), uno: '.uno:InsertCheckboxContentControl'},
 				{name: _('Insert Dropdown'), uno: '.uno:InsertDropdownContentControl'},
 				{name: _('Insert Picture'), uno: '.uno:InsertPictureContentControl'},
 				{name: _('Insert Date'), uno: '.uno:InsertDateContentControl'},
 				{name: _('Properties'), uno: '.uno:ContentControlProperties'},
-			]},
+			]},*/
 			{name: _UNO('.uno:ToolsMenu', 'text'), id: 'tools', type: 'menu', menu: [
 				{uno: '.uno:SpellingAndGrammarDialog'},
 				{uno: '.uno:SpellOnline'},
@@ -352,37 +354,37 @@ L.Control.Menubar = L.Control.extend({
 					{
 						uno: '.uno:Translate'
 					}: {},
-				{uno: '.uno:ThesaurusDialog'},
-				{name: _UNO('.uno:LanguageMenu'), type: 'menu', menu: [
+				//{uno: '.uno:ThesaurusDialog'},
+				/*{name: _UNO('.uno:LanguageMenu'), type: 'menu', menu: [
 					{name: _UNO('.uno:SetLanguageSelectionMenu', 'text'), type: 'menu', menu: [
 						{name: _('None (Do not check spelling)'), id: 'noneselection', uno: '.uno:LanguageStatus?Language:string=Current_LANGUAGE_NONE'} ]},
 					{name: _UNO('.uno:SetLanguageParagraphMenu', 'text'), type: 'menu', menu: [
 						{name: _('None (Do not check spelling)'), id: 'noneparagraph', uno: '.uno:LanguageStatus?Language:string=Paragraph_LANGUAGE_NONE'} ]},
 					{name: _UNO('.uno:SetLanguageAllTextMenu', 'text'), type: 'menu', menu: [
 						{name: _('None (Do not check spelling)'), id: 'nonelanguage', uno: '.uno:LanguageStatus?Language:string=Default_LANGUAGE_NONE'}]}
-				]},
+				]},*/
 				{uno: '.uno:WordCountDialog'},
-				window.enableAccessibility ?
+				/*window.enableAccessibility ?
 					{name: _('Screen Reading'), id: 'togglea11ystate', type: 'action'} : {},
-				{uno: '.uno:AccessibilityCheck'},
+				{uno: '.uno:AccessibilityCheck'},*/
 				{type: 'separator'},
 				{name: _UNO('.uno:AutoFormatMenu', 'text'), type: 'menu', menu: [
 					{uno: '.uno:OnlineAutoFormat'}]},
-				{type: 'separator'},
+				/*{type: 'separator'},
 				{uno: '.uno:ChapterNumberingDialog'},
 				{uno: '.uno:LineNumberingDialog'},
 				{uno: '.uno:FootnoteDialog'},
 				{type: 'separator'},
-				{name: _UNO('.uno:RunMacro'), id: 'runmacro', uno: '.uno:RunMacro'}
+				{name: _UNO('.uno:RunMacro'), id: 'runmacro', uno: '.uno:RunMacro'}*/
 			]},
 			{name: _UNO('.uno:HelpMenu', 'text'), id: 'help', type: 'menu', menu: [
-				{name: _('Forum'), id: 'forum', type: 'action'},
+				/*{name: _('Forum'), id: 'forum', type: 'action'},
 				{name: _('Online Help'), id: 'online-help', type: 'action', iosapp: false},
 				{name: L.Control.MenubarShortcuts.addShortcut(_('Keyboard shortcuts'), L.Control.MenubarShortcuts.shortcuts.KEYBOARD_SHORTCUTS), id: 'keyboard-shortcuts', type: 'action', iosapp: false},
 				{name: _('Report an issue'), id: 'report-an-issue', type: 'action', iosapp: false},
 				{name: _('Latest Updates'), id: 'latestupdates', type: 'action', iosapp: false},
 				{name: _('Send Feedback'), id: 'feedback', type: 'action', mobileapp: false},
-				{name: _('Server audit'), id: 'serveraudit', type: 'action', mobileapp: false},
+				{name: _('Server audit'), id: 'serveraudit', type: 'action', mobileapp: false},*/
 				{name: _('About'), id: 'about', type: 'action'}]
 			},
 			{name: _('Last modification'), id: 'last-mod', type: 'action', tablet: false}
