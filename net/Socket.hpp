@@ -10,7 +10,7 @@
  */
 
 #pragma once
-
+#include <climits>
 #include <poll.h>
 #include <unistd.h>
 #include <sys/types.h>
