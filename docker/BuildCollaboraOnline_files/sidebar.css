@@ -1,0 +1,43 @@
+@media (min-width: 992px) {
+  .sidebar #TableOfContents {
+    box-shadow: 1px 0 3px 0 #00000035, -1px 0 #5c2983;
+    border: none !important;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 62px;
+    max-height: calc(100vh - 62px); /* Set the maximum height */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+  }
+}
+
+.sidebar #TableOfContents {
+  background-color: #fafafa;
+  border-bottom: 1px dashed #5c2983;
+  border-top: 1px dashed #5c2983;
+  padding: 18px;
+}
+
+.sidebar #TableOfContents ul {
+  padding-left: 1rem;
+  list-style-position: outside;
+}
+
+.sidebar #TableOfContents ul ul {
+  font-size: 1rem;
+  padding: 1px 0 12px 1rem;
+}
+
+.sidebar #TableOfContents > ul > li > a {
+  color: #5c2983;
+  font-weight: bold;
+}
+
+.sidebar #TableOfContents a {
+  text-decoration: none;
+}
+
+.sidebar #TableOfContents a:hover {
+  text-decoration: underline;
+}
