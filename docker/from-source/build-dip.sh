@@ -155,7 +155,6 @@ if test ! -d "$INSTDIR"/usr/bin ; then
   ( cd online && DESTDIR="$INSTDIR" make install ) || exit 1
 fi
 
-exit 1
 # Create new docker image
 if [ -z "$NO_DOCKER_IMAGE" ]; then
   echo "### Create Docker image ###"
