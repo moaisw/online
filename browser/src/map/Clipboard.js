@@ -217,20 +217,32 @@ L.Clipboard = L.Class.extend({
 	_readContentSyncToBlob: function(dataTransfer) {
 		var content = [];
 		var types = dataTransfer.types;
-		for (var t = 0; t < types.length; ++t) {
-			if (types[t] === 'Files')
-				continue; // images handled elsewhere.
-			var dataStr = dataTransfer.getData(types[t]);
-			// Avoid types that has no content.
-			if (!dataStr.length)
-				continue;
-			var data = new Blob([dataStr]);
-			window.app.console.log('type ' + types[t] + ' length ' + data.size +
-				    ' -> 0x' + data.size.toString(16) + '\n');
-			content.push((types[t] === 'text' ? 'text/plain' : types[t]) + '\n');
-			content.push(data.size.toString(16) + '\n');
-			content.push(data);
-			content.push('\n');
+		if(types.length == 1 && types[0] === 'text/html'){
+				var dataStr = dataTransfer.getData(types[0]);
+				dataStr = DocUtil.stripHTML(dataStr);
+				var data = new Blob([dataStr]);
+				window.app.console.log('type ' + types[0] + ' length ' + data.size +
+						' -> 0x' + data.size.toString(16) + '\n');
+				content.push('text/plain' + '\n');
+				content.push(data.size.toString(16) + '\n');
+				content.push(data);
+				content.push('\n');
+		}else{
+			for (var t = 0; t < types.length; ++t) {
+				if (types[t] === 'Files' || types[t] === 'text/html')
+					continue; // images handled elsewhere.
+				var dataStr = dataTransfer.getData(types[t]);
+				// Avoid types that has no content.
+				if (!dataStr.length)
+					continue;
+				var data = new Blob([dataStr]);
+				window.app.console.log('type ' + types[t] + ' length ' + data.size +
+						' -> 0x' + data.size.toString(16) + '\n');
+				content.push((types[t] === 'text' ? 'text/plain' : types[t]) + '\n');
+				content.push(data.size.toString(16) + '\n');
+				content.push(data);
+				content.push('\n');
+			}
 		}
 		if (content.length > 0)
 			return new Blob(content, {type : 'application/octet-stream', endings: 'transparent'});
